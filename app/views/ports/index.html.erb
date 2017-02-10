@@ -4,5 +4,5 @@
   <p><%= port_item.title %></p>
   <p><%= port_item.subtitle %></p>
   <p><%= port_item.body %></p>
-  <%= image_tag port_item.thumb_image %>
+  <%= image_tag port_item.thumb_image unless port_item.thumb_image.nil? %>
 <% end %>
