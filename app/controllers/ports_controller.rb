@@ -38,4 +38,17 @@ class PortsController < ApplicationController
   def show
     @port_item = Port.find(params[:id])
   end
+
+  def destroy
+    # Perform the lookup
+    @port_item = Port.find(params[:id])
+
+    # Destroy/delete the record
+    @port_item.destroy
+
+    # Redirect
+    respond_to do |format|
+      format.html { redirect_to ports_url, notice: 'Record was removed.' }
+    end
+  end
 end
