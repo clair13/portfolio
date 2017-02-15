@@ -9,10 +9,11 @@ class PortsController < ApplicationController
 
   def new
     @port_item = Port.new
+    3.times { @port_item.technologies.build }
   end
 
   def create
-    @port_item = Port.new(params.require(:port).permit(:title, :subtitle, :body))
+    @port_item = Port.new(params.require(:port).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
 
     respond_to do |format|
       if @port_item.save
