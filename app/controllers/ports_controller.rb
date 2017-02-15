@@ -3,6 +3,10 @@ class PortsController < ApplicationController
     @port_items = Port.all
   end
 
+  def angular
+    @angular_port_items = Port.angular
+  end
+
   def new
     @port_item = Port.new
   end

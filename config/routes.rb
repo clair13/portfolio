@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :ports, except: [:show]
+  get 'angular-items', to: 'ports#angular'
   get 'port/:id', to: 'ports#show', as: 'port_show'
 
   get 'about-me', to: 'pages#about'
