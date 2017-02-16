@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :ports, except: [:show]
   get 'angular-items', to: 'ports#angular'
   get 'port/:id', to: 'ports#show', as: 'port_show'
