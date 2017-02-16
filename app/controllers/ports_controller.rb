@@ -13,7 +13,7 @@ class PortsController < ApplicationController
   end
 
   def create
-    @port_item = Port.new(params.require(:port).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+    @port_item = Port.new(port_params)
 
     respond_to do |format|
       if @port_item.save
@@ -32,7 +32,7 @@ class PortsController < ApplicationController
     @port_item = Port.find(params[:id])
     
     respond_to do |format|
-      if @port_item.update(params.require(:port).permit(:title, :subtitle, :body))
+      if @port_item.update(port_params)
         format.html { redirect_to ports_path, notice: 'The record successfully updated.' }
       else
         format.html { render :edit }
@@ -55,5 +55,16 @@ class PortsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to ports_url, notice: 'Record was removed.' }
     end
+  end
+
+  private
+
+  def port_params
+    params.require(:port).permit(:title,
+                                 :subtitle,
+                                 :body,
+                                 technologies_attributes: [:name]
+                                 )
+
   end
 end
