@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :ports, except: [:show]
   get 'angular-items', to: 'ports#angular'
   get 'port/:id', to: 'ports#show', as: 'port_show'
