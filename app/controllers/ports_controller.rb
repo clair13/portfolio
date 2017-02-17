@@ -1,4 +1,5 @@
 class PortsController < ApplicationController
+  layout 'port'
   def index
     @port_items = Port.all
   end
