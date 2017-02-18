@@ -1,4 +1,5 @@
 class PortsController < ApplicationController
+  before_action :set_port_item, only: [:edit, :show, :update, :destroy]
   layout 'port'
   def index
     @port_items = Port.all
@@ -26,11 +27,9 @@ class PortsController < ApplicationController
   end
 
   def edit
-    @port_item = Port.find(params[:id])
   end
 
   def update
-    @port_item = Port.find(params[:id])
     
     respond_to do |format|
       if @port_item.update(port_params)
@@ -42,12 +41,10 @@ class PortsController < ApplicationController
   end
 
   def show
-    @port_item = Port.find(params[:id])
   end
 
   def destroy
     # Perform the lookup
-    @port_item = Port.find(params[:id])
 
     # Destroy/delete the record
     @port_item.destroy
@@ -67,5 +64,9 @@ class PortsController < ApplicationController
                                  technologies_attributes: [:name]
                                  )
 
+  end
+
+  def set_port_item
+    @port_item = Port.find(params[:id])
   end
 end
