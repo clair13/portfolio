@@ -1,13 +1,13 @@
 <h1>Angular Portfolio Items</h1>
 
-<%= link_to "Create New Item", new_port_url %>
+<%= link_to "Create New Item", new_port_url if logged_in?(:site_admin)%>
 
 <% @angular_port_items.each do |port_item| %>
   <p><%= link_to port_item.title, port_show_path(port_item) %></p>
   <p><%= port_item.subtitle %></p>
   <p><%= port_item.body %></p>
   <%= image_tag port_item.thumb_image unless port_item.thumb_image.nil? %>
-  <%= link_to "Edit", edit_port_path(port_item) %>
-  <%= link_to 'Delete Portfolio Item', port_path(port_item), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to "Edit", edit_port_path(port_item) if logged_in?(:site_admin) %>
+  <%= link_to 'Delete Portfolio Item', port_path(port_item), method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin)%>
 
 <% end %>
