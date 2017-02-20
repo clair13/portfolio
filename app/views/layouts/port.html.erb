@@ -14,7 +14,7 @@
 
   <body>
     <%= render 'shared/port_nav' %>
-    <%= render 'shared/port_masthead' %>
+    <%= render 'shared/port_masthead' unless logged_in?(:site_admin) %>
 
     <%= yield %>
 
