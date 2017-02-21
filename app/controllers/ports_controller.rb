@@ -21,7 +21,6 @@ class PortsController < ApplicationController
 
   def new
     @port_item = Port.new
-    3.times { @port_item.technologies.build }
   end
 
   def create
@@ -73,7 +72,7 @@ class PortsController < ApplicationController
                                  :body,
                                  :main_image,
                                  :thumb_image,
-                                 technologies_attributes: [:name]
+                                 technologies_attributes: [:id, :name, :_destroy]
                                  )
 
   end
