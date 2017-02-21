@@ -7,6 +7,14 @@ class PortsController < ApplicationController
     @port_items = Port.by_position
   end
 
+  def sort
+    params[:order].each do |key, value|
+      Port.find(value[:id]).update(position: value[:position])
+    end
+
+    render nothing: true 
+  end
+
   def angular
     @angular_port_items = Port.angular
   end
