@@ -1,6 +1,8 @@
-<div class="card" data-id="<%= port_item.id %>">
-  <%= image_tag port_item.thumb_image unless port_item.thumb_image.nil? %>
-  <p class="card-text">
-    <span><%= link_to port_item.title, port_show_path(port_item) %></span> <%= port_item.subtitle %>
-  </p>
+<div class="col-md-4">
+  <div class="card" data-id="<%= port_item.id %>">
+    <%= image_tag port_img(port_item.thumb_image, 'thumb'), width: '100%' %>
+    <p class="card-text">
+      <span><%= link_to port_item.title, port_show_path(port_item) %></span> <%= port_item.subtitle %>
+    </p>
+  </div>
 </div>
