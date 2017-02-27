@@ -69,3 +69,5 @@ gem 'redis', '~> 3.3', '>= 3.3.3'
 gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.1'
 gem 'faker', '~> 1.7', '>= 1.7.3'
+
+ruby "2.2.2"
